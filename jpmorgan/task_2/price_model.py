@@ -143,7 +143,7 @@ def function_price_model(DF):
         CONT += 1
         if CONT == N_DATEO:
             SELL_TABLE["Quantity"][
-                SELL_TABLE["Value Gas"].index(min(SELL_TABLE["Value Gas"]))
+                SELL_TABLE["Value Gas"].index(max(SELL_TABLE["Value Gas"]))
             ] += sum(BUY_TABLE["Quantity"]) - sum(SELL_TABLE["Quantity"])
             break
     # print(PRICE_OUT)
@@ -155,8 +155,9 @@ def function_price_model(DF):
         10**4 / 10**6
     )
     COSTS_VALUE["Armazenation"][0] += (
-        (max(SELL_TABLE["Date"]).year - min(BUY_TABLE["Date"]).year) * 12
-    ) + (max(SELL_TABLE["Date"]).month - min(BUY_TABLE["Date"]).month)
+        ((max(SELL_TABLE["Date"]).year - min(BUY_TABLE["Date"]).year) * 12)
+        + (max(SELL_TABLE["Date"]).month - min(BUY_TABLE["Date"]).month)
+    ) * 10**5
     print("\n #INJECTION TABLE:")
     print(tabulate(BUY_TABLE, headers="keys", tablefmt="fancy_grid"))
     print("\n #WITHDRAWAL TABLE:")
@@ -176,7 +177,7 @@ def function_price_model(DF):
 
 
 DATA = pd.read_csv(
-    "E:/python/Python_Finance/jpmorgan/data_base/Nat_Gas.csv",
+    "https://raw.githubusercontent.com/gabrieldacarvalho/quantitative_research/main/jpmorgan/data_base/Nat_Gas.csv",
     parse_dates=["Dates"],
 )
 
