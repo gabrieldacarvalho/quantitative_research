@@ -176,7 +176,7 @@ def function_price_model(DF):
 
 
 DATA = pd.read_csv(
-    "E:/python/Python_Finance/jpmorgan/data_base/Nat_Gas.csv",
+    "https://raw.githubusercontent.com/gabrieldacarvalho/quantitative_research/main/jpmorgan/data_base/Nat_Gas.csv",
     parse_dates=["Dates"],
 )
 
