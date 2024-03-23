@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 import statsmodels.api as sm
 
 # Carregar os dados
-DATA_GAS = pd.read_csv('E:/python/Python_Finance/jpmorgan/task_1/Nat_Gas.csv')
+DATA_GAS = pd.read_csv('https://raw.githubusercontent.com/gabrieldacarvalho/quantitative_research/main/jpmorgan/data_base/Nat_Gas.csv')
 
 # Convertendo a coluna 'Dates' para datetime com formato especificado
 DATA_GAS['Dates'] = pd.to_datetime(DATA_GAS['Dates'], format='%m/%d/%y')
